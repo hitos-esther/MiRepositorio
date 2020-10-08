@@ -1,0 +1,24 @@
+*[Hitos Garcia,Esther](https://github.com/hitos-esther/miprimersepositorio)
+
+
+Configuración base de Git:
+
+git config --global user.name "Nombre del usuario"
+git config --global user.email "profesorjim@gmail.com"
+git config --global credential.helper 'cache --timeout = 36000'
+git config --global http.sslVerify "false"
+
+Clonar el respositorio desde GitHub a local
+
+clon de git https://github.com/<nombredeusuario>/ <nombreReposit>
+clon de git https://github.com/profesorjim/pruebadehoy2
+
+Actualiza el repositorio (desde local a GitHub)
+
+git add. --todos
+git commit -m "actualización"
+maestro de origen de git push
+
+Actualiza el respositorio (desde GitHub a local)
+
+git pull
