@@ -1,35 +1,32 @@
 /**
- * t4Ej1.java
  * Ejercicio 1 | Tema 4
- * que pida dia de la semana y te diga la asignatura que toca
- * @author Esther Hitos 1ºDAW
+ * Pide día de la semana y devuelve asignatura que hay a primera hora.
+ * @author Esther Hitos
  */
- 
- public class t4Ej1 {
-  public static void main ( String [] args ){
-  /*Pide el dia de la semana*/
-    System.out.print("Por favor, introduzca el dia de la semana: ");
-     int diaSem = Integer.parseInt(Sistem.console().readLine());
-     /* Switch para encontrar asignatura */
-    String (diaSem){
-       case "lunes":
+
+public class t4Ej1 { // Clase principal
+  public static void main(String[] args) {
+    
+    String diaSem;
+    /* Recoge dia de la semana */
+    System.out.print("Por favor, introduce un dia de la semana: ");
+    diaSem = System.console().readLine().toLowerCase();
+    /* Switch para encontrar asignatura */
+    switch (diaSem){
+        case "lunes":
         case "miércoles":
-          System.out.print("Este dia de la semana Toca LM.");
+          System.out.print("Hay Sistemas Informáticos.\n");
           break;
         case "martes":
         case "jueves":
         case "viernes":
-          System.out.print("Este dia de la semana Toca Programación.");
+          System.out.print("Hay Programación.\n");
           break;
         case "sábado":
         case "domingo":
-          System.out.print("No hay clase.");
+          System.out.print("No hay clase.\n");
         default:
-          System.out.print("¿Qué parte de dia de la semana no entendiste?");
-    
+          System.out.print("¿Qué parte de dia de la semana no entendiste?\n");
     }
-    
-  
   }
- 
- }
+}
