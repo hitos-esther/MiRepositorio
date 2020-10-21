@@ -160,4 +160,209 @@ public static void main(String[] args) {
 	System.out.printf("%-10s	%8.2f		%6d\n", "aguacates", 10.0, 6);
 	}
 }
+			2.1 Definición y tipos de variables
+			
+Las variables pueden almacenar valores enteros, números decimales, caracteres,
+cadenas de caracteres (palabras o frases),El contenido de las variables puede
+cambiar durante la ejecución del programa.Escribiremos los nombres de variables en formato lowerCamelCase.
+Puedes usar números en los nombres de variables pero nunca justo al principio; 5x no es un nombre válido pero x5 sí lo es.
+Los nombres de las variables deben ser significativos, es decir, deben indicar
+perfectamente qué información contienen.
+
+			Enteros ( int y long )
+			
+Las variables que van a contener 👉️números enteros se declaran con int👈️ . Veamos un
+EJEMPLO
+/**
+* Uso de variables enteras int
+*
+* @author Luis J. Sánchez
+*/
+public class VariablesEnteras {
+	public static void main(String[] args) {
+		int x; // Declara la variable x como entera
+		x = 5; // Asigna el valor 5 a la variable x
+		// Muestra el valor de x
+	System.out.println("El valor actual de mi variable es " + x);
+		x = 7; // Asigna el valor 7 a la variable x
+		// Muestra de nuevo el valor de x
+		System.out.println("y ahora es " + x);
+	}
+}
+
+Si pretendemos almacenar 👉️valores muy grandes👈️ en una variable, 
+	usaremos el tipo 👉️long👈️ en lugar de int .
+
+		Números decimales ( double y float )
+			
+Usamos los tipos double o float cuando queremos (o esperamos) almacenar números con decimales en las variables.		
+Las variables de tipo double tienen mayor precisión que las de tipo float .
+
+Cada variable se debe definir en una línea diferente.
+	double x;
+	double y;
+	
+EJEMPLO:
+	/**
+	* Uso de variables que contienen números decimales
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class VariablesConDecimales {
+	public static void main(String[] args) {
+		double x; // Se declaran las variables x e y
+		double y; // de tal forma que puedan almacenar decimales.
+		x = 7;    // double tambien acepta numeros enteros
+		y = 25.01;
+		System.out.println(" x vale " + x);
+		System.out.println(" y vale " + y);
+		}
+	}
+	
+			Cadenas de caracteres ( String )
 		
+Se utilizan para almacenar palabras y frases,Todas las cadenas de caracteres deben ir entrecomilladas mediante el símbolo de comillasdobles (“).
+
+	EJEMPLO
+	
+	/**
+	* Uso del tipo String
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class UsoDeStrings {
+	public static void main(String[] args) {
+	
+		String miPalabra = "cerveza";
+		String miFrase = "¿dónde está mi cerveza?";
+	
+		System.out.println("Una palabra que uso con frecuencia: " + miPalabra);
+		System.out.println("Una frase que uso a veces: " + miFrase);
+		}
+	}
+Un cadena de caracteres puede contener cero (cadena vacía)= String cadenaInicial = "";
+
+				Caracteres ( char )
+ La variable de tipo 👉️char . El carácter debe ir entrecomillado utilizando las comillas simples 
+ 👉️(‘).
+ No es lo mismo "a"= cadena de caracteres, que 'a'= un carácter .
+ 
+	EJEMPLO Variables
+
+	/**
+	* Uso del tipo char
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class UsoDeChar {
+		public static void main(String[] args) {
+		char letra1 = 'c';
+		char letra2 = 'a';
+		char letra3 = 's';
+		char letra4 = 'a';
+		System.out.println("letra1: " + letra1);
+		System.out.println("letra3: " + letra3);
+		System.out.println("todas las letras juntas: " + letra1 + letra2 + letra3 + letra4);
+		}
+	}
+Veamos un comportamiento curioso del tipo char .
+	/**
+	* Correspondencia entre los tipos char e int
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class CharComoInt {
+		public static void main(String[] args) {
+		char letra1 = 'a';
+		char letra2 = 'b';
+		System.out.println(letra1);
+		System.out.println(letra2);
+		System.out.println(letra1 + letra2);
+		System.out.println(letra1 + "" + letra2);
+		}
+	}
+	El resultado del programa anterior se muestra a continuación.
+		a
+		b
+		195 = System.out.println(letra1 + letra2);en realidad es la suma de los códigos ASCII de la letra “a” y 				de la letra “b” que son el 97 y el 98 respectivamente
+		ab 
+		
+			
+				2.2 Resumen de tipos primitivos
+				
+	TIPO		DESCRIPCIÓN			TAMAÑO		EJEMPLO
+	boolean	verdadero o falso		1 bit		boolean abierto = true;
+	byte		número entero			8 bits		byte repeticiones = 22;
+	char		carácter			16 bits	char letra = ‘a’;
+	short		número entero			16 bits	short pantalones = 22;
+	int		número entero			32 bits	int asistentes = 22;
+	long		número entero			64 bits	long poblacion = 22L;
+	float		número con decimales		32 bits	float nota = 9.5f;
+	double		número con decimales		64 bits	double precio = 22.55d;
+
+				2.3 Operadores artiméticos
+				
+	OPERADOR	NOMBRE			EJEMPLO	DESCRIPCIÓN
+	+		suma			20 + x		suma dos números
+	-		resta			a-b		resta dos números
+	*		multiplicacion		10 * 7		multiplica dos números
+	/		division		altura / 2	divide dos números
+	%		resto(modulo)		5%2		resto de la división entera
+	++		incremento 		a++		incrementa en 1 el valor de la variable
+	-- 		decremento 		a- -		decrementa en 1 el valor de la variable
+
+
+EJEMPLOS de los operadores aritméticos.
+
+	/**
+	* Uso de los operadores aritméticos
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class UsoDeOperadoresAritmeticos {
+		public static void main(String[] args) {
+		int x;
+		x = 100;
+		
+		System.out.println(x + " " + (x + 5) + " " + (x - 5));
+		System.out.println((x * 5) + " " + (x / 5) + " " + (x % 5));
+		}
+	}
+
+
+			2.4 Asignación de valores a variables
+			
+EJEMPLO
+
+	/**
+	* Operaciones y asignaciones
+	*
+	* @author Luis J. Sánchez
+	*/
+	public class Asignaciones {
+		public static void main(String[] args) {
+		int x = 2;
+		int y = 9;
+		
+		int sum = x + y;
+		System.out.println("La suma de mis variables es " + sum);
+		
+		int mul = x * y;
+		System.out.println("La multiplicación de mis variables es " + mul);
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
