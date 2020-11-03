@@ -89,7 +89,8 @@ Flechas
 ⇜⇝⇞⇟⇠⇡⇢⇣⇤⇥⇦⇧⇨⇩⇪⇫⇬⇭⇮⇯⇰⇱⇲⇳⇴⇵⇶⇷⇸⇹⇺⇻⇼⇽⇾⇿➔➘
 ➙➚➛➜➝➞➟➠➡➢➣➤➥➦➧➨➩➪➫➬➭➮➯➱➲➳➴➵➶➷➸➹➺➻➼➽➾
 Números en círculos
-❶❷❸❹❺❻❼❽❾❿12345678910➊➋➌➍➎➏➐➑➒➓Apéndice C. Caracteres especiales
+❶❷❸❹❺❻❼❽❾❿12345678910➊➋➌➍➎➏➐➑➒➓
+Apéndice C. Caracteres especiales
 370
 Dados
 ⚀⚁⚂⚃⚄⚅
@@ -182,9 +183,11 @@ public class VariablesEnteras {
 	public static void main(String[] args) {
 		int x; // Declara la variable x como entera
 		x = 5; // Asigna el valor 5 a la variable x
+		
 		// Muestra el valor de x
 	System.out.println("El valor actual de mi variable es " + x);
 		x = 7; // Asigna el valor 7 a la variable x
+		
 		// Muestra de nuevo el valor de x
 		System.out.println("y ahora es " + x);
 	}
@@ -288,7 +291,7 @@ Veamos un comportamiento curioso del tipo char .
 		ab 
 		
 			
-				2.2 Resumen de tipos primitivos
+				2.2 Resumen de tipos primitivos(int , long , double y float)
 				
 	TIPO		DESCRIPCIÓN			TAMAÑO		EJEMPLO
 	boolean	verdadero o falso		1 bit		boolean abierto = true;
@@ -353,16 +356,337 @@ EJEMPLO
 	}
 
 
+			2.5 Conversión de tipos (casting)
+
+Para convertir una variable de un tipo a otro 👉️ ( de int a bouble)👈️hay que escribir entre paréntesis el tipo que se quiere obtener..
+
+EJEMPLO
+
+/**
+* Conversión de tipos
+*
+* @author Luis J. Sánchez
+*/
+public class ConversionDeTipos {
+	public static void main(String[] args) {
+	int x = 2;
+	int y = 9;
+	double division;
+	division = (double) y / (double) x;
+	// Descomenta la siguiente línea y observa cómo cambia el resultado.
+	// division = y / x;
+	System.out.println("El resultado de la división es " + division);
+
+
+		3. Lectura de datos desde teclado
+
+	1. Entrada de datos desde teclado (o desde cualquier otro dispositivo de entrada)
+	2. Procesamiento de los datos de entrada para producir un resultado
+	3. Visualización de los resultados por pantalla
+
+		3.1 Lectura de texto
+		
+👉️System.console().readLine()👈️ se recoge una línea de texto introducida por teclado.todo lo que se ha tecleado se almacena en una variable, en el siguiente ejemplo esa variable es ➡️nombre . 
+
+EJEMPLO
+
+/**
+* Lectura de datos desde teclado
+*
+* @author Luis J. Sanchez
+*/
+public class DimeTuNombre {
+  public static void main(String[] args) {
+   String nombre;
+   
+   System.out.print("Por favor, dime cómo te llamas: ");
+   nombre = System.console().readLine();
+   
+   System.out.println("Hola " + nombre + ", ¡encantado de conocerte!");
+ }
+}
+
+⬆️Los datos introducidos por teclado se recogen como una cadena de caracteres (un String ).		
+
+		
+		3.2 Lectura de números
+		
+Si en lugar de texto necesitamos datos numéricos, deberemos CONVERTIR la cadena
+introducida en un número con el método adecuado. Como se muestra en el ejemplo,
+👉️Integer.parseInt()👈️ convierte el texto introducido por teclado en un dato numérico,
+concretamente en un número entero.
+		
+/**
+* Lectura de datos desde teclado
+*
+* @author Luis J. Sánchez
+*/
+public class LeeNumeros {
+  public static void main(String[] args) {
+   String linea;
+   System.out.print("Por favor, introduce un número: ");
+   linea = System.console().readLine();
+   int primerNumero;
+   primerNumero = Integer.parseInt( linea );
+   
+   System.out.print("introduce otro, por favor: ");
+   linea = System.console().readLine();
+   int segundoNumero;
+   segundoNumero = Integer.parseInt( linea );
+   
+   int total;
+   total = (2 * primerNumero) + segundoNumero;
+   System.out.print("El primer número introducido es " + primerNumero);
+   
+   System.out.println(" y el segundo es " + segundoNumero);Lectura de datos desde teclado 27
+   
+   System.out.print("El doble del primer número más el segundo es ");
+   System.out.print(total);
+  }
+}
+
+Este último programa se podría acortar un poco. Por ejemplo, estas dos líneas
+	int total;
+	total = (2 * primerNumero) + segundoNumero;
+	
+se podrían quedar en una sola línea
+	int total = (2 * primerNumero) + segundoNumero;
+	
+De igual modo, estas tres líneas
+	linea = System.console().readLine();
+	int primerNumero;
+	primerNumero = Integer.parseInt( linea );
+	
+también se podrían reducir a una sola tal que así
+	int primerNumero = Integer.parseInt( System.console().readLine() );		
+		
+		
+		3.3 La clase Scanner
+		
+La clase Scanner funciona tanto en entornos integrados como Eclipse,
+Netbeans, JavaEdit, como en una ventana de terminal.		
+		
+Lectura de datos desde teclado 👉️import java.util.Scanner;👈️
+
+EJEMPLO
+
+
+
+ import java.util.Scanner;
+/**
+* Lectura de datos desde teclado usando la clase Scanner
+*
+* @author Luis J. Sánchez
+*/
+
+public class LeeDatosScanner01 {
+  public static void main(String[] args) {
+  Scanner s = new Scanner(System.in);
+  
+  System.out.print("Introduce tu nombre: ");
+  String nombre = s.nextLine();
+  
+  System.out.print("Introduce tu edad: ");
+  int edad = Integer.parseInt(s.nextLine());
+  
+  System.out.println("Tu nombre es " + nombre + " y tu edad es " + edad);
+  }
+}
+
+		Fíjate que en el programa anterior la sentencia
+  			 s.nextLine()
+   
+		sería el equivalente a
+   			System.console().readLine()
+
+👉️s.next() para leer una cadena de caracteres. 
+👉️s.nextInt() para leer un número entero.
+👉️s.nextDouble() para leer numeros con decimales.
+
+
+			4. Sentencia condicional ( if y switch )
+			
+Una sentencia condicional permite al programa bifurcar el flujo de ejecución de instrucciones dependiendo del valor de una expresión.
+   
+   		4.1 Sentencia if
+   		
+  if permite la ejecución de una serie de instrucciones en función del resultado de una expresión lógica verdadero ( true ) o falso ( false ).
+  
+  ➡️sentencia if⬇️
+  		if (condición) {
+  		
+			instrucciones a ejecutar si la condición es verdadera
+			
+		} else {
+		
+			instrucciones a ejecutar si la condición es falsa
+		}
+   		
+ EJEMPLO
+ 
+ /**
+  * Sentencia if
+  *
+  * @author Luis J. Sánchez
+  */
+public class ComparacionCadena {
+    public static void main(String[] args) {
+    String miFruta = "naranja";
+	
+	if ("naranja".equals(miFruta)) {
+		System.out.println("iguales");
+	} else {
+		System.out.println("distintas");
+	}
+   }
+}
+   		
+   		
+ "naranja".equals(miFruta)➡️ devuelve true,por tanto, se ejecuta el primer bloque del código 
+ System.out.println("distintas")➡️si fuese false se ejecutaria el segundo bloque ( el else ).
+ 
+ 
+ 			4.2 Operadores de comparación
+ 			
+ OPERADOR	NOMBRE			EJEMPLO	DESCRIPCIÓN
+    ==		igual			a == b		a es igual a b
+    !=		distinto		a != b		a es distinto de b
+    <		menor que		a<b		a es menor que b
+    >		mayor que		a>b		a es mayor que b
+    <=		menor o igual que	a<=b		a es menor o igual que b
+    >=		mayor o igual que	a>=b		a es mayor o igual que b
+    
+EJEMPLO
+
+El usuario introduce una nota; si esta nota es mayor o igual a 5 se
+le mostrará un mensaje diciendo que ha aprobado y en caso de que no se cumpla la
+condición se mostrará un mensaje diciendo que está suspenso.
+
+/**
+ * Sentencia if
+ *
+ * @author Luis J. Sánchez
+ */
+public class SentenciaIf03 {
+  public static void main(String[] args) {
+  
+  System.out.print("¿Qué nota has sacado en el último examen? ");
+  String line = System.console().readLine();
+  double nota = Double.parseDouble( line );
+  
+    if (nota >= 5) {
+         System.out.println("¡Enhorabuena!, ¡has aprobado!");
+    } else {
+     System.out.println("Lo siento, has suspendido.");
+    }
+  }
+}
+
+		4.3 Operadores lógicos
+		
+Los operadores de comparación se pueden combinar con los operadores lógicos. Por
+ejemplo, si queremos saber si la variable a es mayor que b y además es menor que c ,
+escribiríamos if ((a > b) && (a < c)) .
+
+OPERADOR  NOMBRE  	EJEMPLO 		DEVUELVE VERDADERO CUANDO...  
+  &&	   y	   (7 > 2) && (2 < 4)		las dos condiciones son verdaderas	 
+  ||	   o	   (7 > 2) || (2 < 4)		al menos una de las condiciones es verdadera	
+   !	   no	   !(7 > 2)			la condición es falsa
+ 
+El comportamiento de los operadores lógicos se muestra en la siguiente tabla de
+verdad donde “V” significa “verdadero” y “F” significa “falso”.  
+  
+A	B	A && B	 A || B	!A	!B	
+➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️➖️
+V	V	  V	   V		F	F
+V	F	  F	   V		F	V
+F	V	  F	   V		V	F
+F	F	  V	   F		V	V
+
+
+ 		4.4 Sentencia switch (selección múltiple)
+ 		
+ El formato de 👉️switch👈️ es el que se muestra a continuación. En lenguaje natural sería
+algo así como “Si variable vale valor1 entonces entra por case valor1: , si variable vale
+valor2 entonces entra por case valor2: ,... si variable no vale ninguno de los valores que
+hay en los distintos case entonces entra por default: .
+
+   switch(variable) {
+     case valor1:
+	sentencias
+	break;
+	
+     case valor2:
+	sentencias
+	break;
+	.
+	.
+	.
+     default:
+	sentencias
+  }
+
+➡️es necesario introducir un break después de la asignación de la variable nombreDelMes ⬅️. En caso de no encontrarse el break , el programa continúa la ejecución en la línea siguiente.
+
+El bloque que corresponde al default se ejecuta cuando la variable no coincide con ninguno de los valores de los case.
+
+➡️Escribiremos siempre el default al final de la sentencia switch aunque no sea necesario.⬅️
+
+La sentencia switch se utiliza con frecuencia para crear menús.
+
+
+/**
+* Ejemplo de un menú con switch
+*
+* @author Luis José Sánchez
+*/
+public class MenuConSwitch {
+  public static void main(String[] args) {
+   System.out.println("CÁLCULO DE ÁREAS");
+   System.out.println("----------------");
+   System.out.println("1. Cuadrado");
+   System.out.println("2. Rectángulo");
+   System.out.println("3. Triángulo");
+   System.out.print("\nElija una opción (1-3): ");
+
+   int opcion = Integer.parseInt(System.console().readLine());
+   
+   double lado;
+   double base;
+   double altura;
+    switch (opcion) {
+     case 1:
+     System.out.print("\nIntroduzca el lado del cuadrado en cm: ");
+     lado = Double.parseDouble(System.console().readLine());
+     System.out.println("\nEl área del cuadrado es " + (lado * lado) + " cm2");
+     break;
+    
+    case 2:
+    System.out.print("\nIntroduzca la base del rectángulo en cm: ");
+    base = Double.parseDouble(System.console().readLine());
+    System.out.print("Introduzca la altura del rectángulo en cm: ");
+    altura = Double.parseDouble(System.console().readLine());
+    System.out.println("El área del rectángulo es " + (base * altura) + " cm2");
+    break;
+    
+    case 3:
+    System.out.print("\nIntroduzca la base del triángulo en cm: ");
+    base = Double.parseDouble(System.console().readLine());
+    System.out.print("Introduzca la altura del triángulo en cm: ");
+    altura = Double.parseDouble(System.console().readLine());
+    System.out.println("El área del triángulo es " + ((base * altura) / 2) + " cm2");
+    break;
+     
+   default:
+    System.out.print("\nLo siento, la opción elegida no es correcta.");
+   }
+ }
+}
 
 
 
 
-
-
-
-
-
-
-
-
-
+   	
+   	
+   	
+   		
