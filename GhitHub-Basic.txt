@@ -1,4 +1,4 @@
-*[Hitos Garcia,Esther](https://github.com/hitos-esther/miprimersepositorio)
+*[Hitos Garcia,Esther](git@github.com:hitos-esther/MiRepositorio.git)
 
 
 Configuración base de Git:
@@ -15,10 +15,15 @@ clon de git https://github.com/profesorjim/pruebadehoy2
 
 Actualiza el repositorio (desde local a GitHub)
 
-git add. --todos
+esther@esther-PC:~/MiRepositorio/MiRepositorio SSH
+
+git  --all
+git push --all
 git commit -m "actualización"
-maestro de origen de git push
+maestro de origen de git push(git push origin master)
+git push origin master
 
 Actualiza el respositorio (desde GitHub a local)
-
-git pull
+git pull --all
+git commit -m "actualización"
+git pull origin master
